@@ -63,6 +63,9 @@ Route::resource('Archive', 'InvoiceArchief');
 
 Route::get('Print_invoice/{id}','InvoiceController@Print_invoice')->name('Print_invoice');
 
+//to export for excel
+Route::get('Invoice/export/', 'InvoiceController@export');
+
 Route::post('delete_file', 'InvoceDetailController@destroy')->name('delete_file');
 Route::post('update_file', 'InvoceDetailController@update')->name('update_file');
 

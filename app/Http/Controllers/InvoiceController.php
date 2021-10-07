@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\InvoiceNotification;
 use Illuminate\Support\Facades\Notification;
+use App\Exports\InvoiceExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class InvoiceController extends Controller
 {
@@ -336,6 +339,13 @@ if($request->hasFile('pic')){
     {
         $invoices = Invoice::find( $id);
         return view('invoices.print_invoice',compact('invoices'));
+    }
+
+    //for exceport to excel
+    public function export() 
+    {
+        //dd(1);
+        return Excel::download(new InvoiceExport, 'Invoice.xlsx');
     }
    
 

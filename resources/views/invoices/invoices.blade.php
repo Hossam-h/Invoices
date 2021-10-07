@@ -58,15 +58,19 @@ window.onload = function() {
     <div class="col-xl-12">
         <div class="card mg-b-20">
             <div class="card-header pb-0">
-                <div class="d-flex justify-content-between">
+                
                     <div class="col-sm-6 col-md-4 col-xl-3">
                         <a class="btn btn-outline-primary btn-block" href="{{route('invoices.create')}}"> + اضافة
                             فاتورة</a>
+
+
+                            <a class="modal-effect  p-2 m-2 btn btn-sm btn-primary" href="{{ url('Invoice/export/') }}"
+                            style="color:white"><i class="fas fa-file-download"></i>&nbsp;تصدير اكسيل</a>
                     </div>
 
 
                     <i class="mdi mdi-dots-horizontal text-gray"></i>
-                </div>
+                
 
             </div>
             <div class="card-body">
