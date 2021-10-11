@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 //use \app\Http\Controllers\InvoiceController;
 //use \app\Http\Controllers\SectionController;
-//use \app\Http\Controllers\ProductController;
+use \app\Http\Controllers\UserController;
 use \app\Http\Controllers\AjaxController;
 /*
 |--------------------------------------------------------------------------
@@ -69,4 +69,25 @@ Route::get('Invoice/export/', 'InvoiceController@export');
 Route::post('delete_file', 'InvoceDetailController@destroy')->name('delete_file');
 Route::post('update_file', 'InvoceDetailController@update')->name('update_file');
 
+Route::group(['middleware' => ['auth']], 
+          function() {
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
+   
+});
+
+
+
+
 Route::get('/{page}', 'AdminController@index');
+
+
+
+
+
+
+
+
+
+
+

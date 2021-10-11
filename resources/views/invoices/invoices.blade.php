@@ -196,7 +196,7 @@ window.onload = function() {
             <div class="modal-body">
                 هل انت متاكد من عملية الحذف ؟
                 <input type="hidden" name="invoice_id" id="invoice_id" value="">
-                <input type="hidden" name="id_page" id="id_page" value="2">
+                <input type="hidden" name="id_page" id="id_page" value="3">
 
             </div>
             <div class="modal-footer">

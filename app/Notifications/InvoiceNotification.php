@@ -10,7 +10,8 @@ use Illuminate\Notifications\Notification;
 class InvoiceNotification extends Notification
 {
     use Queueable;
- private $invoice_id;
+ 
+    private $invoice_id;
     /**
      * Create a new notification instance.
      *

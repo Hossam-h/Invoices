@@ -128,7 +128,9 @@ if($request->hasFile('pic')){
             $image->move(public_path('Attachments/'. $request->invoice_number), $imageName);
             
         }
+       
             $user=User::first();
+    
             $user->notify(new InvoiceNotification($invoice_id));
              //Notification::send($user,new InvoiceNotification($invoice_id));
             session()->flash('Add', 'تم اضافة المرفق بنجاح');
@@ -234,17 +236,14 @@ if($request->hasFile('pic')){
         
          
          $id_page =$request->id_page;
-
-
-        if (!$id_page==2) {
-
+        
+        if ($id_page !== 2) {
+            
             if (!empty($Details->invoice_number)) {
 
                 Storage::disk('public_uploads')->deleteDirectory($Details->invoice_number);
             }
-    
-
-        
+            
         $invoices->forceDelete();
         session()->flash('delete_invoice');
         return redirect('/invoices');
