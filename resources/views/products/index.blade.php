@@ -78,9 +78,9 @@
                         <thead>
                             <tr>
                                 <th class="border-bottom-0">#</th>
-                                <th class="border-bottom-0">رقم الفاتورة</th>
-                                <th class="border-bottom-0">تاريخ القاتورة</th>
-                                <th class="border-bottom-0">تاريخ الاستحقاق</th>
+                                <th class="border-bottom-0">المنتج</th>
+                                <th class="border-bottom-0">القسم</th>
+                                <th class="border-bottom-0">ملاحظات</th>
                                 <th class="border-bottom-0">العمليات</th>
 
 
@@ -94,8 +94,8 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>{{$product->product_name}}</td>
-                                <td>{{$product->description}}</td>
                                 <td>{{$product->section->section_name}}</td>
+                                <td>{{$product->description}}</td>
 
                             
                                 <td>

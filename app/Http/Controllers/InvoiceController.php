@@ -237,7 +237,7 @@ if($request->hasFile('pic')){
          
          $id_page =$request->id_page;
         
-        if ($id_page !== 2) {
+        if ($id_page != 2) {
             
             if (!empty($Details->invoice_number)) {
 

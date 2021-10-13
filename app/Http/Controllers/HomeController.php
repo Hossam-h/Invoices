@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Invoice;
 class HomeController extends Controller
 {
     /**
@@ -23,7 +23,35 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
-        return view('home');
+        $number1=Invoice::count();
+        // $number_Paid=Invoice::where('Value_Status', 1)->count(); 
+         //$number_nonPaid=Invoice::where('Value_Status', 2)->count(); 
+         //$number_partialPaid=Invoice::where('Value_Status', 3)->count(); 
+         $number_Paid=number_format (\App\Invoice::where('Value_Status',1)->count()  / \App\Invoice::count() * (100) ,2);
+         $number_nonPaid=number_format (\App\Invoice::where('Value_Status',2)->count()  / \App\Invoice::count() * (100) ,2);
+         $number_partialPaid=number_format (\App\Invoice::where('Value_Status',3)->count()  / \App\Invoice::count() * (100) ,2);
+              //  dd($number_Paid+$number_nonPaid+$number_partialPaid);
+      
+        // ExampleController.php
+
+$chartjs =  app()->chartjs
+->name('pieChartTest')
+->type('pie')
+->size(['width' => 400, 'height' => 200])
+->labels(['الفواتير المدفوعه', 'الفواتير الغير مدفوعه','الفواتير المدفوعه جزئيا'])
+->datasets([
+    [
+        'backgroundColor' => ['#3dcc9e', '#FF6384','#f48241'],
+        'hoverBackgroundColor' => ['#3dcc9e', '#FF6384','#f48241'],
+        'data' => [$number_Paid, $number_nonPaid,$number_partialPaid]
+    ]
+])
+->options([]);
+
+return view('home',['chartjs'=>$chartjs]);
+
+
+// example.blade.php
+
     }
 }

@@ -21,13 +21,13 @@ Route::get('/', function () {
 });
 
 
-Auth::routes();
-//Auth::routes(['register' => false ]);
+//Auth::routes();
+Auth::routes(['register' => false ]);
 
  
 
 
-Route::get('/index', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('invoices','InvoiceController');
 Route::resource('sections','SectionController');
@@ -68,6 +68,18 @@ Route::get('Invoice/export/', 'InvoiceController@export');
 
 Route::post('delete_file', 'InvoceDetailController@destroy')->name('delete_file');
 Route::post('update_file', 'InvoceDetailController@update')->name('update_file');
+
+//for reportes
+Route::get('invoices_report', 'Invoices_Report@index');
+//search report
+Route::post('Search_invoices', 'Invoices_Report@Search_invoices');
+
+
+
+Route::get('customers_report', 'Customers_Report@index')->name("customers_report");
+
+Route::post('Search_customers', 'Customers_Report@Search_customers');
+
 
 Route::group(['middleware' => ['auth']], 
           function() {

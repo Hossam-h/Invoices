@@ -181,6 +181,9 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         
 
+        Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class
+
+
     ],
 
     /*
