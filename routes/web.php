@@ -81,6 +81,8 @@ Route::get('customers_report', 'Customers_Report@index')->name("customers_report
 Route::post('Search_customers', 'Customers_Report@Search_customers');
 
 
+
+
 Route::group(['middleware' => ['auth']], 
           function() {
     Route::resource('roles','RoleController');

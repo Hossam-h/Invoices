@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\InvoiceNotification;
+use \App\Notifications\Addinvoice;
 use Illuminate\Support\Facades\Notification;
 use App\Exports\InvoiceExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -129,11 +130,21 @@ if($request->hasFile('pic')){
             
         }
        
-            $user=User::first();
     
-            $user->notify(new InvoiceNotification($invoice_id));
-             //Notification::send($user,new InvoiceNotification($invoice_id));
-            session()->flash('Add', 'تم اضافة المرفق بنجاح');
+           $user=User::get();
+           $invoice_id=Invoice::latest()->first();
+             Notification::send($user,new Addinvoice($invoice_id));
+       
+             
+
+             //message to mail
+            //  $invoice_mail_id=Invoice::latest()->first()->id;
+        
+            //  $user=User::first();
+            // Notification::send($user,new InvoiceNotification($invoice_mail_id));
+            
+           
+            session()->flash('Add', 'تم اضافة الفاتورة بنجاح');
             return back();
     
 

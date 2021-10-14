@@ -90,8 +90,9 @@ window.onload = function() {
                                 <th class="border-bottom-0">الاجمالي</th>
                                 <th class="border-bottom-0">الحالة</th>
                                 <th class="border-bottom-0">ملاحظات</th>
+                                @can('حذف الفاتورة')
                                 <th class="border-bottom-0">العمليات</th>
-
+                                @endcan
                             </tr>
                         </thead>
                         <tbody>
@@ -123,6 +124,7 @@ window.onload = function() {
                                 </td>
                                 <td>{{ $invoice->note }}</td>
 
+                                @can('حذف الفاتورة')
                                 <td>
                                     <div class="dropdown">
                                         <button aria-expanded="false" aria-haspopup="true"
@@ -166,6 +168,7 @@ window.onload = function() {
                                     </div>
 
                                 </td>
+                                @endcan
 
                             </tr>
                             @endforeach
@@ -185,6 +188,7 @@ window.onload = function() {
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
+
                 <h5 class="modal-title" id="exampleModalLabel">حذف الفاتورة</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
