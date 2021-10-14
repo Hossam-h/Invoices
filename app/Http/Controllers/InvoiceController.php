@@ -131,7 +131,7 @@ if($request->hasFile('pic')){
         }
        
     
-           $user=User::get();
+           $user=User::find(Auth::user()->id);
            $invoice_id=Invoice::latest()->first();
              Notification::send($user,new Addinvoice($invoice_id));
        
@@ -357,6 +357,23 @@ if($request->hasFile('pic')){
         //dd(1);
         return Excel::download(new InvoiceExport, 'Invoice.xlsx');
     }
+
+
+    //to read notify
+    public function MarkAsRead_all (Request $request)
+    {
+
+        $userUnreadNotification= auth()->user()->unreadNotifications;
+        
+
+        if($userUnreadNotification) {
+            $userUnreadNotification->markAsRead();
+            return back();
+        }
+
+
+    }
+
    
 
 }

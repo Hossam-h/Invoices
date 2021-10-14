@@ -7,6 +7,10 @@ use App\Invoice;
 use App\InvoiceAttachment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Notifications\InvoiceNotification;
+use \App\Notifications\Addinvoice;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Notifications\Notifiable;
 
 class InvoceDetailController extends Controller
 {
@@ -49,6 +53,17 @@ class InvoceDetailController extends Controller
      */
     public function show($id)
     {
+
+      
+            // $userUnreadNotification= auth()->user()->unreadNotifications->first()->data['id'];;
+        
+            // if($userUnreadNotification) {
+            //     $userUnreadNotification->notify();
+                
+            // }
+    
+        
+    
         
 
         $invoices = Invoice::where('id',$id)->first();
