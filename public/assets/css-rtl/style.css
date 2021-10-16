@@ -10837,35 +10837,41 @@ body {
   bottom: 4px; }
 
 .pulse {
+  
   display: block;
-  position: absolute;
-  top: 7px;
-  right: 8px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #22c03c;
-  cursor: pointer;
-  box-shadow: 0 0 0 rgba(34, 192, 60, 0.9);
+    position: absolute;
+    top: 1px;
+    right: 2px;
+    font-size: 12px;
+    border-radius: 70%;
+    width: 41%;
+    height: 17px;
+    
+    line-height: 16px;
+    background: #f13e07ec;
+    color:white;
+    cursor: pointer;
+   box-shadow: 0 0 0 rgba(34, 192, 60, 0.9);
   animation: pulse 2s infinite;
   animation-duration: .9s;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-out; }
+  animation-timing-function: ease-out; 
+} 
   .pulse:hover {
     animation: none; }
 
 @-webkit-keyframes pulse {
   0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(34, 192, 60, 0.9); }
+    -webkit-box-shadow: 0 0 0 0 rgba(236, 88, 19, 0.9) }
   70% {
-    -webkit-box-shadow: 0 0 0 10px rgba(34, 192, 60, 0); }
+    -webkit-box-shadow: 0 0 0 10px rgba(192, 118, 34, 0); }
   100% {
-    -webkit-box-shadow: 0 0 0 0 rgba(34, 192, 60, 0); } }
+    -webkit-box-shadow: 0 0 0 0 rgba(236, 88, 19, 0.82); } }
 
 @keyframes pulse {
   0% {
-    -moz-box-shadow: 0 0 0 0 rgba(34, 192, 60, 0.9);
-    box-shadow: 0 0 0 0 rgba(34, 192, 60, 0.7); }
+    -moz-box-shadow: 0 0 0 0 rgba(236, 88, 19, 0.9);
+    box-shadow: 0 0 0 0 rgba(236, 88, 19, 0.9); }
   70% {
     -moz-box-shadow: 0 0 0 10px rgba(34, 192, 60, 0);
     box-shadow: 0 0 0 10px rgba(34, 192, 60, 0); }
@@ -10876,18 +10882,19 @@ body {
 .pulse-danger {
   display: block;
   position: absolute;
-  top: 7px;
-  right: 8px;
+  top: -7px;
+  right: 7px;
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: #ee335e;
   cursor: pointer;
   box-shadow: 0 0 0 rgba(34, 192, 60, 0.9);
-  animation: pulse-danger 2s infinite;
+   animation: pulse-danger 2s infinite;
   animation-duration: .9s;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-out; }
+  animation-timing-function: ease-out;  */
+}
 
 @-webkit-keyframes pulse-danger {
   0% {

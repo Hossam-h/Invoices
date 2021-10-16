@@ -137,7 +137,6 @@ class InvoceDetailController extends Controller
     
     
         $files = Storage::disk('public_uploads')->getDriver()->getAdapter()->applyPathPrefix($invoice_number.'\\'.$file_name);
-
         return response()->file($files);
     }
 }
