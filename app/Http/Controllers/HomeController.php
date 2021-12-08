@@ -24,9 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $number1=Invoice::count();
-        // $number_Paid=Invoice::where('Value_Status', 1)->count(); 
-         //$number_nonPaid=Invoice::where('Value_Status', 2)->count(); 
-         //$number_partialPaid=Invoice::where('Value_Status', 3)->count(); 
+
          $number_Paid=number_format (\App\Invoice::where('Value_Status',1)->count()  / \App\Invoice::count() * (100) ,2);
          $number_nonPaid=number_format (\App\Invoice::where('Value_Status',2)->count()  / \App\Invoice::count() * (100) ,2);
          $number_partialPaid=number_format (\App\Invoice::where('Value_Status',3)->count()  / \App\Invoice::count() * (100) ,2);

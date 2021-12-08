@@ -38,28 +38,28 @@ class InvoiceAttachmentController extends Controller
         $this->validate($request, [
 
             'file_name' => 'mimes:pdf,jpeg,png,jpg',
-    
+
             ], [
                 'file_name.mimes' => 'صيغة المرفق يجب ان تكون   pdf, jpeg , png , jpg',
             ]);
-            
+
             $image = $request->file('file_name');
             $file_name = $image->getClientOriginalName();
-    
+
             $attachments =  new InvoiceAttachment();
             $attachments->file_name = $file_name;
             $attachments->invoice_number = $request->invoice_number;
             $attachments->invoice_id = $request->invoice_id;
             $attachments->Created_by = Auth::user()->name;
             $attachments->save();
-               
+
             // move pic
             $imageName = $request->file_name->getClientOriginalName();
-            $request->file_name->move(public_path('Attachments/'. $request->invoice_number), $imageName);
-            
+        $request->file_name->move(public_path('Attachments/'. $request->invoice_number), $imageName);
+
             session()->flash('Add', 'تم اضافة المرفق بنجاح');
             return back();
-    
+
     }
 
     /**
@@ -96,16 +96,16 @@ class InvoiceAttachmentController extends Controller
           $row=InvoiceAttachment::find($id);
           $file = $request->file('pic');
           $file_name = $file->getClientOriginalName();
-  
+
           $row->update([
             'file_name'=>$file_name
         ]);
-        dd('ok');
-        //     if($row->file_name){
-        // Storage::disk('public_uploads')->delete($request->invoice_number.'/'.$row->file_name);
 
-        //     }
-        // $file->move(public_path('Attachments/'. $request->invoice_number), $file_name);
+            if($row->file_name){
+             Storage::disk('public_uploads')->delete($request->invoice_number.'/'.$row->file_name);
+
+            }
+            $file->move(public_path('Attachments/'. $request->invoice_number), $file_name);
 
     }
 
